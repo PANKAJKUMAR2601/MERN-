@@ -1,0 +1,714 @@
+<!doctype html>
+<!--
+  ✅ WHAT: This is the Document Type Declaration (DOCTYPE).
+  ✅ WHY: It tells the browser: "Use modern HTML5 rules".
+  ✅ WHEN: Always put it at the very top of every HTML file.
+  ✅ HOW: Write exactly: <!doctype html>
+-->
+<html lang="en">
+  <!--
+    ✅ WHAT: <html> is the root (top-level) element of the entire page.
+    ✅ WHY: Every HTML element must be inside <html>.
+    ✅ WHERE: It wraps <head> and <body>.
+    ✅ lang="en" WHY: Helps SEO + screen readers know language (English).
+  -->
+
+  <head>
+    <!--
+      ✅ WHAT: <head> contains page metadata (not visible content).
+      ✅ WHY: Browser uses it to load title, fonts, icons, SEO, responsive settings.
+      ✅ WHERE: Always inside <html>, before <body>.
+    -->
+
+    <meta charset="UTF-8" />
+    <!--
+      ✅ WHAT: Character encoding
+      ✅ WHY: UTF-8 supports all languages/symbols (Hindi, emojis, etc.)
+      ✅ WHEN: Always keep it first in head for safety.
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      ✅ WHAT: Viewport settings for responsive design
+      ✅ WHY: Without this, mobile view looks zoomed out & broken.
+      ✅ WHEN: Always add for modern websites.
+      ✅ width=device-width: match screen width
+      ✅ initial-scale=1: default zoom = 100%
+    -->
+
+    <meta
+      name="description"
+      content="A single-file HTML project demonstrating HTML from basic to advanced with detailed comments."
+    />
+    <!--
+      ✅ WHAT: Description used by Google / SEO snippet.
+      ✅ WHY: Helps search engines understand your page.
+      ✅ WHERE: Inside <head>.
+      ✅ TIP: Keep description around 150-160 characters for SEO.
+    -->
+
+    <meta name="keywords" content="HTML, semantic, forms, tables, media, accessibility" />
+    <!--
+      ✅ WHAT: Keywords meta
+      ✅ WHY: Not very useful in modern SEO, but okay for learning.
+      ✅ WHERE: head
+    -->
+
+    <meta name="author" content="Your Name" />
+    <!--
+      ✅ WHAT: Author meta info
+      ✅ WHY: For documentation/ownership
+      ✅ WHERE: head
+    -->
+
+    <title>HTML Master Project (Basic → Advanced)</title>
+    <!--
+      ✅ WHAT: Title shown on browser tab + search results title.
+      ✅ WHY: Very important for SEO + user experience.
+      ✅ WHERE: must be in head.
+    -->
+
+    <style>
+      /*
+        ✅ WHAT: Internal CSS
+        ✅ WHY: To make this HTML project readable.
+        ✅ WHEN: For learning/demo. In real projects, put CSS in separate .css file.
+        ✅ NOTE: Your request is "HTML only", but readability needs small CSS.
+      */
+
+      :root {
+        /* ✅ WHAT: Root refers to <html>. Used for global variables or defaults. */
+        color-scheme: light dark; /* ✅ WHY: Allows browser to adapt to dark/light mode automatically */
+      }
+
+      body {
+        /* ✅ WHAT: Styling the whole page body */
+        font-family: system-ui, Arial, sans-serif; /* ✅ WHY: Clean font across OS */
+        line-height: 1.6; /* ✅ WHY: Better readability */
+        margin: 0; /* ✅ WHY: Remove default browser margin */
+      }
+
+      header,
+      main,
+      footer {
+        /* ✅ WHAT: Common padding + centered layout */
+        padding: 16px;
+        max-width: 1100px; /* ✅ WHY: Prevents too wide text */
+        margin: 0 auto; /* ✅ WHY: Center content */
+      }
+
+      header {
+        border-bottom: 1px solid #9993;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap; /* ✅ WHY: On small screens it wraps nicely */
+        gap: 10px; /* ✅ WHY: Space between menu items */
+        padding: 0;
+        list-style: none; /* ✅ WHY: Remove bullets */
+        margin: 8px 0 0;
+      }
+
+      nav a {
+        text-decoration: none;
+        border: 1px solid #9993;
+        padding: 6px 10px;
+        border-radius: 999px; /* ✅ WHY: pill style */
+      }
+
+      nav a:focus {
+        outline: 2px solid;
+        outline-offset: 2px;
+        /* ✅ WHY: Accessibility - keyboard users can see focus */
+      }
+
+      .grid {
+        display: grid; /* ✅ WHAT: CSS grid layout */
+        grid-template-columns: 1.3fr 0.7fr; /* ✅ WHY: main + sidebar */
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        /* ✅ WHAT: Responsive rule (for mobiles/tablets) */
+        .grid {
+          grid-template-columns: 1fr; /* ✅ WHY: Stack vertically */
+        }
+      }
+
+      section,
+      article,
+      aside {
+        border: 1px solid #9993;
+        border-radius: 12px;
+        padding: 14px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 2px 10px;
+        border: 1px solid #9993;
+        border-radius: 999px;
+        font-size: 0.9rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid #9993;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background: #9991;
+      }
+
+      fieldset {
+        border: 1px solid #9993;
+        border-radius: 10px;
+        padding: 12px;
+      }
+
+      label {
+        display: block; /* ✅ WHY: each label on new line */
+        margin-top: 10px;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #9995;
+      }
+
+      textarea {
+        min-height: 100px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      @media (max-width: 700px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .muted {
+        opacity: 0.8;
+      }
+
+      footer {
+        border-top: 1px solid #9993;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 10px;
+        background: Canvas;
+        color: CanvasText;
+        padding: 8px 10px;
+        border: 1px solid;
+        border-radius: 10px;
+      }
+
+      .skip-link:focus {
+        left: 10px;
+        /* ✅ WHY: Only visible when keyboard user presses Tab */
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 900px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        border: 1px solid #9993;
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .badge {
+        font-size: 0.85rem;
+        padding: 2px 8px;
+        border-radius: 8px;
+        border: 1px solid #9993;
+      }
+
+      code,
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--
+      ✅ WHAT: <body> contains all VISIBLE content.
+      ✅ WHY: Everything user sees is inside body.
+    -->
+
+    <a class="skip-link" href="#content">Skip to main content</a>
+    <!--
+      ✅ WHAT: Skip link (accessibility)
+      ✅ WHY: Keyboard users / screen readers can jump to main content.
+      ✅ HOW: href="#content" jumps to element with id="content".
+    -->
+
+    <header>
+      <!--
+        ✅ WHAT: <header> is semantic tag for top section
+        ✅ WHY: Improves SEO + accessibility
+        ✅ WHERE: Usually contains logo, title, navigation
+      -->
+      <h1>HTML Master Project <span class="pill">Basic → Advanced</span></h1>
+
+      <p class="muted">
+        This is a single HTML file that demonstrates HTML concepts: layout, forms, tables, media, accessibility.
+      </p>
+
+      <nav aria-label="Primary">
+        <!--
+          ✅ WHAT: <nav> contains navigation links
+          ✅ WHY: Screen readers can quickly find navigation
+          ✅ aria-label: label for screen readers (important if multiple navs exist)
+        -->
+        <ul>
+          <!--
+            ✅ WHAT: <ul> unordered list for menu items
+            ✅ WHY: Navigation is best represented as a list.
+          -->
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#legal">Legal</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="content">
+      <!--
+        ✅ WHAT: <main> is the main area of the page
+        ✅ WHY: Screen readers can jump directly to it
+        ✅ id="content": used by skip link for jumping
+      -->
+
+      <div class="grid">
+        <!--
+          ✅ WHAT: wrapper div for layout
+          ✅ WHY: We want left main content + right sidebar
+          ✅ HOW: CSS .grid uses grid columns
+        -->
+
+        <div>
+          <!-- ===================== SECTION 1: ABOUT ===================== -->
+          <section id="about" aria-labelledby="about-title">
+            <!--
+              ✅ WHAT: <section> is a thematic group of content
+              ✅ WHY: Use when content belongs together
+              ✅ id="about": makes it linkable using #about
+              ✅ aria-labelledby: links section to heading id for accessibility
+            -->
+            <h2 id="about-title">About This Project</h2>
+
+            <p>
+              This demonstrates <strong>bold importance</strong>, <em>emphasis</em>, <mark>highlight</mark>,
+              <abbr title="HyperText Markup Language">HTML</abbr> abbreviation.
+            </p>
+
+            <p>
+              Use this as a learning project or a base template for your website.
+            </p>
+
+            <hr />
+            <!--
+              ✅ WHAT: horizontal rule
+              ✅ WHY: Visual separation between topics
+              ✅ WHEN: Use only when it improves readability
+            -->
+
+            <h3>Project Goals</h3>
+            <ol>
+              <!--
+                ✅ WHAT: ordered list
+                ✅ WHY: Steps/goals are naturally ordered
+              -->
+              <li>Show HTML concepts in one file.</li>
+              <li>Be easy to read.</li>
+              <li>Be accessibility-friendly.</li>
+            </ol>
+          </section>
+
+          <!-- ===================== SECTION 2: MEDIA + LISTS ===================== -->
+          <section id="skills" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills Showcase</h2>
+
+            <figure>
+              <!--
+                ✅ WHAT: figure is used for self-contained media (image/chart)
+                ✅ WHY: Allows caption using figcaption
+              -->
+              <img
+                src="https://via.placeholder.com/1100x350.png?text=Replace+With+Your+Image"
+                alt="Placeholder banner image"
+                width="1100"
+                height="350"
+                loading="lazy"
+              />
+              <!--
+                ✅ WHAT: <img> displays image
+                ✅ alt: required for accessibility (screen readers)
+                ✅ width/height: reduces layout shift
+                ✅ loading="lazy": loads only when needed (performance)
+              -->
+
+              <figcaption class="muted">
+                Replace this image with your own banner.
+              </figcaption>
+            </figure>
+
+            <h3>Definition List</h3>
+            <dl>
+              <!--
+                ✅ WHAT: definition list
+                ✅ WHEN: Use for term-definition data
+              -->
+              <dt>Semantic HTML</dt>
+              <dd>Using tags that describe meaning (header, nav, main, article).</dd>
+
+              <dt>Accessibility</dt>
+              <dd>Making websites usable for everyone (keyboard, screen readers).</dd>
+            </dl>
+
+            <h3>Meter and Progress</h3>
+            <p>
+              HTML Mastery:
+              <meter min="0" max="100" value="70">70%</meter>
+              <!--
+                ✅ WHAT: meter shows measurement within range
+                ✅ WHEN: Use for "measurement" like rating, capacity
+              -->
+            </p>
+            <p>
+              Completion:
+              <progress value="80" max="100">80%</progress>
+              <!--
+                ✅ WHAT: progress bar
+                ✅ WHEN: Use for "task progress"
+              -->
+            </p>
+          </section>
+
+          <!-- ===================== SECTION 3: CARDS / ARTICLES ===================== -->
+          <section id="portfolio" aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title">Portfolio</h2>
+
+            <div class="cards">
+              <article class="card">
+                <!--
+                  ✅ WHAT: article is independent content (can be shared separately)
+                  ✅ WHEN: blog post, product card, news item, etc.
+                -->
+                <h3>Project 1: Landing Page</h3>
+                <p><span class="badge">HTML</span> <span class="badge">Semantic</span></p>
+                <p>Semantic layout using header/nav/main/footer.</p>
+                <a href="#contact">Contact</a>
+              </article>
+
+              <article class="card">
+                <h3>Project 2: Forms</h3>
+                <p><span class="badge">Forms</span> <span class="badge">Validation</span></p>
+                <p>Built-in validation using required/pattern/email.</p>
+                <a href="#contact">Try Form</a>
+              </article>
+
+              <article class="card">
+                <h3>Project 3: Blog Layout</h3>
+                <p><span class="badge">SEO</span> <span class="badge">Article</span></p>
+                <p>Article, time tag, headings, semantic structure.</p>
+                <a href="#blog">Read Blog</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- ===================== SECTION 4: PRODUCT / DETAILS / MEDIA ===================== -->
+          <section id="product" aria-labelledby="product-title">
+            <h2 id="product-title">Product Demo</h2>
+
+            <details>
+              <!--
+                ✅ WHAT: details creates expandable section
+                ✅ WHY: No JavaScript needed for FAQ/outline
+              -->
+              <summary>See Product Outline</summary>
+              <ul>
+                <li>Basics</li>
+                <li>Semantic HTML</li>
+                <li>Forms</li>
+                <li>Tables & Media</li>
+              </ul>
+            </details>
+
+            <h3>Media Tags</h3>
+
+            <audio controls preload="none">
+              <!--
+                ✅ WHAT: audio tag
+                ✅ controls: shows play/pause UI
+                ✅ preload="none": saves bandwidth
+              -->
+              <source src="sample-audio.mp3" type="audio/mpeg" />
+              Your browser does not support audio.
+            </audio>
+
+            <br /><br />
+
+            <video controls width="100%" preload="none"
+              poster="https://via.placeholder.com/1100x500.png?text=Video+Poster">
+              <!--
+                ✅ WHAT: video tag
+                ✅ poster: image shown before play
+              -->
+              <source src="sample-video.mp4" type="video/mp4" />
+              Your browser does not support video.
+            </video>
+
+            <h3>Iframe (Embed)</h3>
+            <iframe
+              title="Embed demo"
+              width="100%"
+              height="220"
+              loading="lazy"
+              srcdoc="
+                <style>body{font-family:system-ui;margin:0;padding:12px}</style>
+                <h3>Embedded Content</h3>
+                <p>This content comes from <code>srcdoc</code>.</p>
+              "
+            ></iframe>
+            <!--
+              ✅ WHAT: iframe embeds another page
+              ✅ title: accessibility requirement
+              ✅ srcdoc: directly embeds HTML without external URL
+            -->
+          </section>
+
+          <!-- ===================== SECTION 5: BLOG ===================== -->
+          <section id="blog" aria-labelledby="blog-title">
+            <h2 id="blog-title">Blog</h2>
+
+            <article>
+              <h3>Semantic HTML Matters</h3>
+              <p class="muted">
+                Published: <time datetime="2026-02-24">February 24, 2026</time>
+              </p>
+              <!--
+                ✅ WHAT: <time> provides machine-readable date
+                ✅ WHY: Useful for SEO and browsers
+              -->
+              <p>
+                Semantic tags help search engines and assistive technologies understand your page.
+              </p>
+
+              <pre><code>&lt;article&gt;
+  &lt;h2&gt;Title&lt;/h2&gt;
+  &lt;p&gt;Content...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+              <!--
+                ✅ WHAT: pre + code displays code blocks
+                ✅ WHEN: Use for showing code examples/tutorials
+              -->
+            </article>
+          </section>
+
+          <!-- ===================== SECTION 6: TABLE ===================== -->
+          <section id="pricing" aria-labelledby="pricing-title">
+            <h2 id="pricing-title">Pricing Table</h2>
+
+            <table>
+              <caption>Pricing Plans</caption>
+              <!-- ✅ caption describes table meaning (accessibility) -->
+
+              <thead>
+                <tr>
+                  <th scope="col">Plan</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Features</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th scope="row">Starter</th>
+                  <td>₹0</td>
+                  <td>Basics + semantic</td>
+                </tr>
+                <tr>
+                  <th scope="row">Pro</th>
+                  <td>₹499</td>
+                  <td>Forms + tables</td>
+                </tr>
+                <tr>
+                  <th scope="row">Elite</th>
+                  <td>₹999</td>
+                  <td>Accessibility + mini projects</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!-- ===================== SECTION 7: FAQ ===================== -->
+          <section id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title">FAQ</h2>
+
+            <details open>
+              <summary>Is this file enough?</summary>
+              <p>Yes, to understand most HTML concepts.</p>
+            </details>
+
+            <details>
+              <summary>Can I split into folders?</summary>
+              <p>Yes. Later do day01/, day02/ etc for GitHub.</p>
+            </details>
+          </section>
+
+          <!-- ===================== SECTION 8: FORM ===================== -->
+          <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact Form</h2>
+
+            <form action="#" method="post" autocomplete="on">
+              <!--
+                ✅ WHAT: form collects user input
+                ✅ action="#": where data goes (here it's placeholder)
+                ✅ method="post": send data securely (not in URL)
+                ✅ autocomplete="on": browser helps fill values
+              -->
+
+              <fieldset>
+                <legend>Basic Info</legend>
+
+                <div class="row">
+                  <div>
+                    <label for="name">Full Name *</label>
+                    <!--
+                      ✅ WHY label + for:
+                      - Clicking label focuses input
+                      - Screen readers read label
+                    -->
+                    <input id="name" name="name" type="text" required minlength="3" placeholder="Your name" />
+                  </div>
+
+                  <div>
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" required placeholder="you@example.com" />
+                  </div>
+                </div>
+
+                <label for="phone">Phone (10 digits)</label>
+                <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" placeholder="9876543210" />
+
+                <label for="role">Role (datalist)</label>
+                <input id="role" name="role" list="roles" placeholder="Choose or type" />
+                <datalist id="roles">
+                  <option value="Student"></option>
+                  <option value="Developer"></option>
+                  <option value="Designer"></option>
+                </datalist>
+              </fieldset>
+
+              <fieldset>
+                <legend>Message</legend>
+
+                <label for="message">Your message *</label>
+                <textarea id="message" name="message" required minlength="10"></textarea>
+
+                <label for="file">Attach File</label>
+                <input id="file" name="file" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt" />
+              </fieldset>
+
+              <div class="row">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- ===================== SECTION 9: LEGAL ===================== -->
+          <section id="legal" aria-labelledby="legal-title">
+            <h2 id="legal-title">Legal</h2>
+            <p>
+              <small>
+                This is a learning demo project. Replace placeholders with your real content.
+              </small>
+            </p>
+          </section>
+        </div>
+
+        <aside aria-label="Sidebar">
+          <!--
+            ✅ WHAT: aside is extra content related to main
+            ✅ WHEN: sidebars, related links, ads, author info
+          -->
+
+          <section aria-labelledby="sidebar-title">
+            <h2 id="sidebar-title">Checklist</h2>
+            <ul>
+              <li>Semantic tags</li>
+              <li>Media tags</li>
+              <li>Tables</li>
+              <li>Forms</li>
+              <li>Accessibility</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="address-title">
+            <h2 id="address-title">Contact Card</h2>
+            <address>
+              <strong>Your Name</strong><br />
+              Bengaluru, India<br />
+              <a href="mailto:you@example.com">you@example.com</a>
+            </address>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <!--
+        ✅ WHAT: footer is bottom section
+        ✅ WHEN: copyright, links, contact
+      -->
+      <p>© <time datetime="2026">2026</time> Your Name</p>
+    </footer>
+  </body>
+</html>
