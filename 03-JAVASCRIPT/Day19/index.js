@@ -1,7 +1,7 @@
 // console.log("Hello World Start");
 
 
-// code
+// code promises in javascript 
 
 // const p1 = fetch("https://api.github.com/users");
 
